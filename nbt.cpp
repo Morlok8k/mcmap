@@ -75,6 +75,7 @@ NBT::NBT()
 {
 	_blob = NULL;
 	_filename = NULL;
+	_bloblen = NULL;
 }
 
 ///-------------------------------------------
@@ -190,6 +191,7 @@ NBT_Tag::NBT_Tag()
 	_elems = NULL;
 	_data = NULL;
 	_type = tagUnknown;
+	_len = NULL;
 }
 
 NBT_Tag::NBT_Tag(uint8_t* &position, const uint8_t *end, string &name)
@@ -198,6 +200,8 @@ NBT_Tag::NBT_Tag(uint8_t* &position, const uint8_t *end, string &name)
 	_elems = NULL;
 	_data = NULL;
 	_type = tagUnknown;
+	_len = NULL;
+
 	if (*position < 1 || *position > 11 || end - position < 3) {
 		position = NULL;
 		return;
@@ -221,6 +225,7 @@ NBT_Tag::NBT_Tag(uint8_t* &position, const uint8_t *end, TagType type)
 	_elems = NULL;
 	_data = NULL;
 	_type = type;
+	_len = NULL;
 	this->parseData(position, end);
 }
 
