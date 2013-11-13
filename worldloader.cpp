@@ -554,6 +554,7 @@ static bool loadAnvilChunk(NBT_Tag * const level, const int32_t chunkX, const in
 		for (int x = 0; x < CHUNKSIZE_X; ++x) {
 			for (int z = 0; z < CHUNKSIZE_Z; ++z) {
 				uint8_t *targetBlock, *lightByte;
+				lightByte = 0;		//Morlok8k: fixes lightByte might not be initialized warning.
 				if (g_Orientation == East) {
 					targetBlock = &BLOCKEAST(x + offsetx, yoffset, z + offsetz);
 					if (g_Skylight || g_Nightmode) lightByte = &SETLIGHTEAST(x + offsetx, yoffset, z + offsetz);
