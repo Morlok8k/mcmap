@@ -338,14 +338,14 @@ NBT_Tag::~NBT_Tag()
 {
 	if (_elems) {
 		for (tagmap::iterator it = _elems->begin(); it != _elems->end(); it++) {
-			////fprintf(stderr, "_elems Deleting %p\n", (it->second));
+			//fprintf(stderr, "_elems Deleting %p\n", (it->second));
 			delete (it->second);
 		}
 		delete _elems;
 	}
 	if (_list) {
 		for (list<NBT_Tag *>::iterator it = _list->begin(); it != _list->end(); it++) {
-			////fprintf(stderr, "_list Deleting %p\n", *it);
+			//fprintf(stderr, "_list Deleting %p\n", *it);
 			delete *it;
 		}
 		delete _list;
